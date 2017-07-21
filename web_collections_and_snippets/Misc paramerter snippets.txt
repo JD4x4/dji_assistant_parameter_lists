@@ -1,0 +1,174 @@
+RC Groups (Quad808) param mod list for Mavic
+as of 11 Jul 2017
+
+#Sport+
+g_config_mode_sport_cfg_tilt_atti_range = 50 (35 stock)
+g_config_mode_sport_cfg_vert_vel_up= 10
+g_config_mode_sport_cfg_vert_vel_down = -8
+g_config_mode_sport_cfg_vert_acc_up = 10
+g_config_mode_sport_cfg_vert_acc_down = -8
+g_config_fw_cfg_max_speed = 20
+brake_sensitive_gain = 70
+
+#GPS+
+g_config_mode_normal_cfg_tilt_atti = 33
+g_config_mode_normal_cfg_vert_vel_up = 7
+g_config_mode_normal_cfg_vert_vel_down = -6
+g_config_mode_normal_cfg_vert_acc_up = 7
+g_config_mode_normal_cfg_vert_acc_down = -6
+
+#Height+
+g_config_flying_limit_height_limit_enabled = 2
+g_config_flying_limit_limit_height_abs_without_gps = 3000
+g_config_flying_limit_limit_height_abs = 3000
+g_config_flying_limit_limit_height_rel = 3000
+
+#NFZ Changes
+g_config_airport_limit_cfg_cfg_disable_airport_fly _limit = 1
+g_config_airport_limit_cfg_cfg_limit_data = 20250910
+
+#Wind-
+g_config_air_est_big_wind_level1 = 25
+g_config_air_est_big_wind_level2 = 25
+
+#RTH Speed
+g_config_go_home_gohome_idle_vel = 13
+
+--------------------------------------
+from slack:
+guest
+[6:27 AM] 
+
+
+Set: g_config_control_control_mode[1] to: 0 (is the "sport" mode switch)
+
+
+0 = MANUAL (no auto atti control?)
+
+1 = GPS - no noticed difference
+
+2 = GPS - no noticed difference
+
+3 = ATTI
+
+4 = GPS mode indicated, sport mode speed for some reason
+
+5 = GPS - no noticed difference
+
+6 = BEGINNER
+
+7 = GPS Mode Normal
+
+8 = SPORT
+
+9 =  FARM Mode (display says ATTI, but it has positioning)
+
+10 = GPS - no noticed difference
+
+11 = GPS - no noticed difference (edited)
+
+bin4ry [4:38 AM] 
+
+yah usb
+
+
+[4:39] 
+g_config_flying_limit_roof_limit_enable
+
+
+
+ 
+change that @gcbrent
+
+
+
+ 
+this is the new parameter i think
+ 
+the other is deprecated
+
+coldflake [3:31 AM] 
+
+Did you use one of these:
+
+g_config_airport_limit_cfg_cfg_disable_airport_fly_limit 1
+
+g_config_airport_limit_cfg_cfg_enable[FLY_LIMIT_TYPE_AIRPORT]":"1"
+
+
+g_config_airport_limit_cfg_cfg_search_radius":"50000"
+---------------------
+Sources unknown
+Stock Parameters for Mavic (Firmware .400)
+
+#NFZ Changes
+g_config_airport_limit_cfg_cfg_disable_airport_fly_limit = 0
+g_config_airport_limit_cfg_cfg_limit_data = 20150910
+
+#Height Limit Change
+g_config.flying_limit_limit_height_abs_without_gps = 30
+g_config_flying_limit_limit_height_abs = 50
+g_config_flying_limit_limit_height_rel = 5
+g_config_flying_limit_height_limit_enabled = 1
+
+#Sport Mode Vertical and Max Speed
+g_config_mode_sport_cfg_tilt_atti_range = 35
+g_config_mode_sport_cfg_vert_vel_up= 5
+g_config_mode_sport_cfg_vert_vel_down = -3
+g_config_mode_sport_cfg_vert_acc_up = 8
+g_config_mode_sport_cfg_vert_acc_down = -8
+g_config_fw_cfg_max_speed = 10
+
+CopterSafe modifications:
+#NFZ Changes
+g_config.airport_limit_cfg.cfg_disable_airport_fly_limit = 1
+g_config.airport_limit_cfg.cfg_limit_data = 20250910
+
+#Height Limit Change
+g_config.flying_limit.limit_height_abs_without_gps = 2500.000000
+g_config.flying_limit.limit_height_abs = 2500.000000
+g_config.flying_limit.limit_height_rel = 2500.000000
+g_config.flying_limit.height_limit_enabled = 2
+
+#Sport Mode Vertical and Max Speed
+g_config.mode_sport_cfg.tilt_atti_range = 60.000000
+g_config.mode_sport_cfg.vert_vel_up= 10.000000
+g_config.mode_sport_cfg.vert_vel_down = -10.000000
+g_config.mode_sport_cfg.vert_acc_up = 10.000000
+g_config.mode_sport_cfg.vert_acc_down = -10.000000
+g_config.fw_cfg.max_speed = 20.000000
+
+FCC MOD:
+dji go 4.0.6 -> hit 11 click on flight controller sn for hidden menu
+enter djitestcc at top field and US at middle -> click the button
+Fcc mode now
+
+Critical RTH workaround:
+IN DJI Dashboard go to Flight Settings, then change Battery Type to Non-DJI Battery and Battery Cells to 3s
+*caution* This will diable the Mavic from sensing Low battery.  Use at your own risk, just like any other change in default settings.
+------------------
+Atti Mode (via sport mode button)
+Haven't seen this posted before, so I thought I would share the ability to set Atti via the Sport mode button - given to me by an unnamed source.
+The default settings are:
+
+g_config_control_mode[1] (switch_selection_1) 8 = Sport Mode 
+g_config_control_mode[2] (switch_selection_2) 7 = GPS Mode 
+
+Changing either to 6 will add beginner mode on the switch
+Changing either to 3 is ATTI so you can either change GPS mode or Sport Mode position.
+---------
+Note for modding the Spark to remove height limit:
+Firmware ver .004 has the 'g_config_flying_limit_height_limit_enabled' param removed. It exists in Firmware ver .003 though.
+
+---------
+Finally got to go out to the local airport that is in a DJI NFZ (not GEO) area. 
+With the parameters set to disable NFZs, the map shows me in the middle of the Red NFZ but the P4P cares not and arms as normal. 
+
+A2 v.2 1.1.0-2
+Craft FW v.01.03.0509
+ios Go4 v.4.0.8
+#NFZ Changes
+g_config.airport_limit_cfg.cfg_disable_airport_fly _limit = 1 
+g_config.airport_limit_cfg.cfg_limit_data = 20250910
+------------------
+
