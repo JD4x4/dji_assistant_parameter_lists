@@ -6,4 +6,4 @@ Spark Compare.txt is a tab delimited file comparing my Spark parameters with ini
 
 Lines in .cfg files which have a prefix of "1" are assumed to be read-only until otherwise determined.
 
-CAUTION: web_collections_and_snippets folder is just for param info & comments collections that may (or may NOT) be verified, and may be ambigious as to which aircraft they apply to!
+CAUTION: web_collections_and_snippets folder is just for param info & comments collections that may (or may NOT) be verified, and may be ambiguous as to which aircraft they apply to!
